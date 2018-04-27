@@ -40,7 +40,7 @@ public class ItemList02 {
         //addObject()使用方法与setAttribute()一样,填充数据
         modelAndView.addObject("itemsList",itemsList);
         //指定视图
-        modelAndView.setViewName("WEB-INF/jsp/itemsList.jsp");
+        modelAndView.setViewName("itemsList");
         return modelAndView;
 
     }

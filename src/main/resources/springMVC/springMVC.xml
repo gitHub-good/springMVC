@@ -37,9 +37,8 @@
     <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp"/>
-        <property name="suffix" value=".jsp"/>-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 
@@ -48,7 +47,7 @@
 
 
     <!--使用注解方式-->
-    <!--注解处理器映射器-->
+    <!--注解处理器映射器，这两个是配对使用的（注解适配器和映射器）-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <!--注解处理器适配器-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
