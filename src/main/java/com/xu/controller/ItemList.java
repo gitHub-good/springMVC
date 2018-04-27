@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 处理器的开发（Controller控制器）
+ * 处理器的开发（SimpleControllerHandlerAdapter适配器开发）
  * 处理器必须实现Controller接口
  */
 public class ItemList implements Controller {

@@ -17,14 +17,45 @@
 
     <!--处理器的（Handler）配置（Controller的配置）-->
     <bean name="/items.action" id="itemList" class="com.xu.controller.ItemList"/>
+    <bean id="itemList01" class="com.xu.controller.ItemList01"/>
     <!--配置处理器映射器-->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <!--
+          SimpleUrlHandlerMapping是BeanNameUrlHandlerMapping的增强版处理器映射器
+          可以集中Handler的bean的Url和name统一配置
+    -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/items01.action">itemList01</prop>
+                <prop key="/items02.action">itemList02</prop>
+            </props>
+        </property>
+    </bean>
     <!--配置处理器适配器-->
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp"/>
         <property name="suffix" value=".jsp"/>-->
     </bean>
+
+
+
+
+
+
+    <!--使用注解方式-->
+    <!--注解处理器映射器-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <!--注解处理器适配器-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <!--代替上面上面两个注解映射器和适配器-->
+    <mvc:annotation-driven/>
+    <!--批量扫描Controller-->
+    <context:component-scan base-package="com.xu.controller"/>
+
+
 </beans>
